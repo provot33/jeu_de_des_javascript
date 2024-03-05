@@ -1,1 +1,1 @@
-# jeu_de_d-s_javascript
+# jeu_de_des_javascript
