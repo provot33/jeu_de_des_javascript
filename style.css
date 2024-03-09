@@ -1,8 +1,15 @@
+ 
 body{
     background-color: chartreuse;
+    font-family: Lato, sans-serif;
 }
 h1 {
     color: white;
     text-align: center;
     background-color: blue;
+}
+H2 {
+    color: white;
+    background-color: blue;
+    margin-bottom: 2px;
 }
