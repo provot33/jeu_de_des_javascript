@@ -1,28 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <header><h1><i class="bi bi-dice-3"></i> Mon jeu de dés <i class="bi bi-dice-3"></i></h1></header>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <i class="bi bi-dice-3"></i> Mon jeu de dés <i class="bi bi-dice-3"></i>
+      </h1>
+    </header>
     <main>
-        <img src="Assets\pexels-markus-winkler-4137852.jpg" width="500px" alt="tapis bleu aves des dessins de dés">
-       
-        <button type="button" class="btn btn-primary"><i class="bi bi-dice-6-fill"></i> Nouvelle partie</button>
-    
-        <h2><i class="bi bi-dice-1-fill"></i> Joueur 1</h2>
-        <H2> <i class="bi bi-dice-2-fill"></i> Joueur 2</H2>
+      <section id="gameBoard" class="text-center">
+          <div id="joueurUn">
+            <h2 class="playerOne"> PLAYER 1<i id="joueur1actif" class="bi bi-dice-1-fill" style="display: none;"></i> </i></h2>
+            <label id="scoreTotalPlayerOne">00</label>
+          </div>
+        </div>
+          <div id="joueurDeux">
+            <h2 class="playerTwo">PLAYER 2<i id="joueur2actif" class="bi bi-dice-1-fill" style="display: none;"> </i></h2>
+            <label id="scoreTotalPlayerTwo">00</label></div>
+          <div id="boutonNouvellePartie">
+            <button type="button" class="newGame" onclick="nouvellePartie()">
+              <i class="bi bi-plus-circle"></i> NEW GAME
+            </button>
+          </div>
+          <div id="lancerLeDe">
+            <button type="button" class="rollDice" onclick="lancerLeDe()">
+              <i class="bi bi-arrow-repeat"></i>ROLL DICE
+            </button>
+          </div>
+          <div id="boutonNouvellePartie">
+            <button type="button" class="hold" onclick="garderScore()">
+              <i class="bi bi-box-arrow-in-down"></i> Hold
+            </button>
+          </div>
+          <div id="scoreUn">
+            <h3 class="currentOne">CURRENT<label id="decompteCurrentUn">00</label></h3>
+          </div>
+          <div id="scoreDeux">
+            <h3 class="currentTwo">CURRENT <label id="decompteCurrentDeux">00</label></h3>
+          </div>
+          <div id="imageDe">
+            <img class="porteurDe" src="assets\sports-1014006_640.jpg" width=10%>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <img
+            src="assets\artistic-blurry-colorful-wallpaper-background.jpg"
+            width="100%"
+            alt="tapis bleu aves des dessins de dés"
+            class="img-thumbnail"
+          />
+        </div>
+        
+      </section>
     </main>
-   <footer></footer> 
-   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <footer>
+      <div>
+        <script
+          src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+          type="module"
+        ></script>
+
+        <dotlottie-player
+          src="https://lottie.host/32e71fee-3316-465f-8ccd-a64c439cfc46/oPrwRD6piJ.json"
+          background="transparent"
+          speed="1"
+          style="width: 300px; height: 300px"
+          loop
+          autoplay
+        ></dotlottie-player>
+      </div>
+    </footer>
+    <script
+      class="animationDes"
+      src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+    ></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

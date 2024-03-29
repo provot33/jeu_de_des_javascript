@@ -3,13 +3,136 @@ body{
     background-color: chartreuse;
     font-family: Lato, sans-serif;
 }
-h1 {
+h1{
+  background-color: blue;
+  color: white;
+    text-align: center;
+    
+}
+
+h3 {
     color: white;
     text-align: center;
-    background-color: blue;
+    background-color:blueviolet;
+    border-color: black 4px;
+    border-radius: 10%;
+    border: 2px solid BLACK;
 }
-H2 {
+h2,
+.newGame,
+.rollDice,
+.hold {
     color: white;
     background-color: blue;
     margin-bottom: 2px;
+    border-radius: 10%;
+    border: 2px solid BLACK;
 }
+.container-fluid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 0%;
+  padding-right: 0%;
+  justify-content:space-around;
+  position: relative;
+}
+.playerOne {
+  position:absolute;
+  top: 25%;
+  right: 55%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 29px;
+  font-weight: bold;
+  border-color: black 4px;
+}
+.playerTwo {
+  position: absolute;
+  top: 25%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 29px;
+  font-weight: bold;
+  border-color: black 4px;
+}
+.newGame {
+  position: absolute;
+  top: 13%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.rollDice {
+  position: absolute;
+  top: 60%;
+  left:45%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+.hold {
+  position: absolute;
+  top: 70%;
+  left:45%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+.hold:hover,
+.rollDice:hover,
+.newGame:hover {
+ background-color:chartreuse;
+ color:blue;
+}
+.currentOne {
+  position: absolute;
+  top: 60%;
+  right: 63%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+.currentTwo {
+  position: absolute;
+  top: 60%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+ 
+}
+.porteurDe {
+  position: absolute;
+  top: 40%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  border: 2px solid BLACK;
+  width: 20%;
+}
+
+img{
+  border-radius: 10%;
+}
+
+
