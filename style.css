@@ -1,32 +1,30 @@
- 
-body{
-    background-color: chartreuse;
-    font-family: Lato, sans-serif;
+body {
+  background-color: chartreuse;
+  font-family: Lato, sans-serif;
 }
-h1{
+h1 {
   background-color: blue;
   color: white;
-    text-align: center;
-    
+  text-align: center;
 }
 
 h3 {
-    color: white;
-    text-align: center;
-    background-color:blueviolet;
-    border-color: black 4px;
-    border-radius: 10%;
-    border: 2px solid BLACK;
+  color: white;
+  text-align: center;
+  background-color: blueviolet;
+  border-color: black 4px;
+  border-radius: 10%;
+  border: 2px solid BLACK;
 }
 h2,
 .newGame,
 .rollDice,
 .hold {
-    color: white;
-    background-color: blue;
-    margin-bottom: 2px;
-    border-radius: 10%;
-    border: 2px solid BLACK;
+  color: white;
+  background-color: blue;
+  margin-bottom: 2px;
+  border-radius: 10%;
+  border: 2px solid BLACK;
 }
 .container-fluid {
   width: 100%;
@@ -34,36 +32,37 @@ h2,
   align-items: center;
   padding-left: 0%;
   padding-right: 0%;
-  justify-content:space-around;
+  justify-content: space-around;
   position: relative;
 }
-.playerOne {
-  position:absolute;
-  top: 25%;
-  right: 55%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  color: white;
-  font-size: 29px;
-  font-weight: bold;
-  border-color: black 4px;
+.img-thumbnail{
+  height: 530px;
 }
-.playerTwo {
+.scoreGlobalUn{
   position: absolute;
-  top: 25%;
-  left: 73%;
-  transform: translate(-50%, -50%);
+  top: 15%;
+  right: 60%;
   z-index: 1;
   color: white;
-  font-size: 29px;
+  font-size: 34px;
   font-weight: bold;
   border-color: black 4px;
 }
+.scoreGlobalDeux{
+  position: absolute;
+  top: 15%;
+  left: 60%;
+  z-index: 1;
+  color: white;
+  font-size: 34px;
+  font-weight: bold;
+  border-color: black 4px;
+}
+
 .newGame {
   position: absolute;
-  top: 13%;
-  left: 45%;
-  transform: translate(-50%, -50%);
+  top: 3%;
+  left: 44.5%;
   z-index: 1;
   color: white;
   font-size: 20px;
@@ -71,20 +70,17 @@ h2,
 }
 .rollDice {
   position: absolute;
-  top: 60%;
-  left:45%;
-  transform: translate(-50%, -50%);
+  top: 98%;
+  left: 22%;
   z-index: 1;
   color: white;
   font-size: 20px;
   font-weight: bold;
-  
 }
 .hold {
   position: absolute;
-  top: 70%;
-  left:45%;
-  transform: translate(-50%, -50%);
+  top: 80%;
+  left: 47.5%;
   z-index: 1;
   color: white;
   font-size: 17px;
@@ -93,31 +89,30 @@ h2,
 .hold:hover,
 .rollDice:hover,
 .newGame:hover {
- background-color:chartreuse;
- color:blue;
+  background-color: chartreuse;
+  color: blue;
 }
-.currentOne {
-  position: absolute;
-  top: 60%;
-  right: 63%;
-  transform: translate(-50%, -50%);
+.scoreCourantUn{
+position: absolute;
+  top: 50%;
+  right: 60%;
   z-index: 1;
   color: white;
-  font-size: 25px;
+  background-color: blueviolet;
+  font-size: 30px;
   font-weight: bold;
+}
+.scoreCourantDeux{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  z-index: 1;
+  color: white;
+  background-color: blueviolet;
+  font-size: 30px;
+  font-weight: bold;
+}
 
-}
-.currentTwo {
-  position: absolute;
-  top: 60%;
-  left: 75%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  color: white;
-  font-size: 25px;
-  font-weight: bold;
- 
-}
 .porteurDe {
   position: absolute;
   top: 40%;
@@ -125,14 +120,142 @@ h2,
   transform: translate(-50%, -50%);
   z-index: 1;
   color: white;
-  font-size: 25px;
+  font-size: 40px;
   font-weight: bold;
   border: 2px solid BLACK;
   width: 20%;
 }
 
-img{
+img {
   border-radius: 10%;
 }
 
+.diceboard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
+.lineboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  position: absolute;
+  top: 25%;
+  left: 41.5%;
+  display: grid;
+  place-items: center;
+  width: 230px;
+  height: 230px;
+  padding: 60px 0 40px;
+  border-radius: 30px;
+  background: #eeeeee;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/*
+  Dice Styles
+*/
+
+.dice {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: 1s ease;
+}
+
+@keyframes rolling {
+  50% {
+    transform: rotateX(455deg) rotateY(455deg);
+  }
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 5px solid #f6f3f0;
+  transform-style: preserve-3d;
+  background: linear-gradient(145deg, #dddbd8, #fff);
+}
+
+.face::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: #f6f3f0;
+  transform: translateZ(-1px);
+}
+
+.face::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #131210;
+}
+
+.front {
+  transform: translateZ(50px);
+}
+
+.back {
+  transform: rotateX(180deg) translateZ(50px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.front::after {
+  width: 30px;
+  height: 30px;
+  background: #f63330;
+  margin: -15px 0 0 -15px;
+}
+
+.back::after {
+  margin: -35px 0 0 -30px;
+  box-shadow: 40px 0, 0 25px, 40px 25px, 0 50px, 40px 50px;
+}
+
+.top::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 40px;
+}
+
+.bottom::after {
+  margin: -36px 0 0 -36px;
+  box-shadow: 26px 26px, 52px 52px, 52px 0, 0 52px;
+}
+
+.right::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 0, 0 40px, 40px 40px;
+}
+
+.left::after {
+  margin: -35px 0 0 -35px;
+  box-shadow: 25px 25px, 50px 50px;
+}

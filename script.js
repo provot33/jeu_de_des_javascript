@@ -1,7 +1,4 @@
-let scoreJoueur1;
-let scoreJoueur2;
-let de;
-let currentPlayer;
+let currentPlayer = "joueur1";
 
 function nouvellePartie(){
     alert("Nouvelle partie");
@@ -14,9 +11,7 @@ function nouvellePartie(){
     currentPlayer = "joueur1";
 }
 
-function lancerLeDe(){
-    let de = Math.floor(Math.random() * (6) + 1);
-    // alert("Dé lancé : " + de);
+function evalueDe(de){
     if (currentPlayer == "joueur1") /* joueur 1 */ {
         if (de == 1) {
             // Il pert et passe la main
@@ -47,7 +42,6 @@ function affecteScoreCourant(de, scoreJoueur){
 }
 
 function garderScore(){
-    // alert("Garde le score et passe la main");
     let victory = (currentPlayer == "joueur1"?
         affecteScoreGlobal("decompteCurrentUn", "scoreTotalPlayerOne"):
         affecteScoreGlobal("decompteCurrentDeux", "scoreTotalPlayerTwo")
@@ -76,3 +70,62 @@ function affecteScoreGlobal(idScoreCourant, idScoreGlobal) {
     document.getElementById(idScoreCourant).innerHTML = "00";
     return scoreGlobal >= 100;
 }
+
+
+const dice = document.querySelector('.dice');
+const rollBtn = document.querySelector('.rollDice');
+
+const randomDice = () => {
+
+    const random = Math.floor(Math.random() * (6) + 1);
+    if (random >= 1 && random <= 6) {
+        rollDice(random);
+    }
+    else {
+        randomDice();
+    }
+}
+
+const rollDice = random => {
+
+    dice.style.animation = 'rolling 4s';
+
+    setTimeout(() => {
+
+        switch (random) {
+            case 1:
+                dice.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                break;
+
+            case 6:
+                dice.style.transform = 'rotateX(180deg) rotateY(0deg)';
+                break;
+
+            case 2:
+                dice.style.transform = 'rotateX(-90deg) rotateY(0deg)';
+                break;
+
+            case 5:
+                dice.style.transform = 'rotateX(90deg) rotateY(0deg)';
+                break;
+
+            case 3:
+                dice.style.transform = 'rotateX(0deg) rotateY(90deg)';
+                break;
+
+            case 4:
+                dice.style.transform = 'rotateX(0deg) rotateY(-90deg)';
+                break;
+
+            default:
+                break;
+        }
+
+        dice.style.animation = 'none';
+        evalueDe(random);
+
+    }, 4050);
+    
+}
+
+rollBtn.addEventListener('click', randomDice);

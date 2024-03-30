@@ -12,9 +12,12 @@
       rel="stylesheet"
       href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -24,49 +27,83 @@
       </h1>
     </header>
     <main>
-      <section id="gameBoard" class="text-center">
-          <div id="joueurUn">
-            <h2 class="playerOne"> PLAYER 1<i id="joueur1actif" class="bi bi-dice-1-fill" style="display: none;"></i> </i></h2>
-            <label id="scoreTotalPlayerOne">00</label>
-          </div>
-        </div>
-          <div id="joueurDeux">
-            <h2 class="playerTwo">PLAYER 2<i id="joueur2actif" class="bi bi-dice-1-fill" style="display: none;"> </i></h2>
-            <label id="scoreTotalPlayerTwo">00</label></div>
-          <div id="boutonNouvellePartie">
-            <button type="button" class="newGame" onclick="nouvellePartie()">
-              <i class="bi bi-plus-circle"></i> NEW GAME
-            </button>
-          </div>
-          <div id="lancerLeDe">
-            <button type="button" class="rollDice" onclick="lancerLeDe()">
-              <i class="bi bi-arrow-repeat"></i>ROLL DICE
-            </button>
-          </div>
-          <div id="boutonNouvellePartie">
-            <button type="button" class="hold" onclick="garderScore()">
-              <i class="bi bi-box-arrow-in-down"></i> Hold
-            </button>
-          </div>
-          <div id="scoreUn">
-            <h3 class="currentOne">CURRENT<label id="decompteCurrentUn">00</label></h3>
-          </div>
-          <div id="scoreDeux">
-            <h3 class="currentTwo">CURRENT <label id="decompteCurrentDeux">00</label></h3>
-          </div>
-          <div id="imageDe">
-            <img class="porteurDe" src="assets\sports-1014006_640.jpg" width=10%>
-          </div>
-        </div>
-        <div class="container-fluid">
+      <section id="gameBoard" class="text-center diceboard">
+        <div class="container-fluid lineboard">
           <img
             src="assets\artistic-blurry-colorful-wallpaper-background.jpg"
             width="100%"
             alt="tapis bleu aves des dessins de dés"
             class="img-thumbnail"
           />
+          <div id="boutonNouvellePartie" class="lineboard">
+            <button type="button" class="newGame" onclick="nouvellePartie()">
+              <i class="bi bi-plus-circle"></i> NEW GAME
+            </button>
+          </div>
         </div>
-        
+        <div class="lineboard">
+          <div id="joueurUn" class="scoreGlobalUn">
+            <h2 class="playerOne">
+              PLAYER 1
+              <i
+                id="joueur1actif"
+                class="bi bi-dice-1-fill"
+                style="display: inline"
+              ></i>
+            </h2>
+            <label id="scoreTotalPlayerOne">00</label>
+          </div>
+          <div id="joueurDeux" class="scoreGlobalDeux">
+            <h2 class="playerTwo">
+              PLAYER 2
+              <i
+                id="joueur2actif"
+                class="bi bi-dice-1-fill"
+                style="display: none"
+              >
+              </i>
+            </h2>
+            <label id="scoreTotalPlayerTwo">00</label>
+          </div>
+        </div>
+        <div id="boutonGarderScore">
+          <button type="button" class="hold" onclick="garderScore()">
+            <i class="bi bi-box-arrow-in-down"></i> Hold
+          </button>
+        </div>
+        <div id="scoreUn" class="scoreCourantUn">
+          <h3 class="currentOne">CURRENT</h3>
+          <label id="decompteCurrentUn" class="decompteCurrentUn">00</label>
+        </div>
+        <div id="scoreDeux" class="scoreCourantDeux">
+          <h3 class="currentTwo">CURRENT</h3>
+          <label id="decompteCurrentDeux" class="decompteCurrentDeux">00</label>
+        </div>
+        <div id="imageDe">
+          <img
+            class="porteurDe"
+            src="assets\sports-1014006_640.jpg"
+            width="10%"
+            hidden
+          />
+        </div>
+        <div>
+          <div class="container">
+            <div class="dice">
+              <div class="face front"></div>
+              <div class="face back"></div>
+              <div class="face top"></div>
+              <div class="face bottom"></div>
+              <div class="face right"></div>
+              <div class="face left"></div>
+            </div>
+            <div id="lancerLeDe">
+              <button type="button" class="rollDice">
+                <i class="bi bi-arrow-repeat"></i>ROLL DICE
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer>
